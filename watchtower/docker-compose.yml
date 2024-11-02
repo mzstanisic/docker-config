@@ -3,8 +3,8 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8081:8080 #for homepage API access
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
