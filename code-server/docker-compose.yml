@@ -8,6 +8,7 @@ services:
     environment:
       - PUID=0
       - PGID=0
+      - PASSWORD=code-server-webgui-pass
       - TZ=America/New_York
       - DEFAULT_WORKSPACE=/local/docker #optional
     volumes:
