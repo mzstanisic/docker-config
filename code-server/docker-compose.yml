@@ -9,7 +9,7 @@ services:
       - PUID=0
       - PGID=0
       - TZ=America/New_York
-      - DEFAULT_WORKSPACE=$HOME/docker #optional
+      - DEFAULT_WORKSPACE=/local/docker #optional
     volumes:
       - config:/config
       - /root:/local
