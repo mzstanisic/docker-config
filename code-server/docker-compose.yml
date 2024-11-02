@@ -1,22 +1,23 @@
 # https://docs.linuxserver.io/images/docker-code-server/
 # https://coder.com/docs/code-server/install#docker
-
 services:
   code-server:
     image: lscr.io/linuxserver/code-server:latest
     container_name: code-server
+    ports:
+      - 8443:8443
+    volumes:
+      - config:/config
+      - /root:/local
+    restart: unless-stopped
     environment:
       - PUID=0
       - PGID=0
       - PASSWORD=code-server-webgui-pass
       - TZ=America/New_York
       - DEFAULT_WORKSPACE=/local/docker #optional
-    volumes:
-      - config:/config
-      - /root:/local
-    ports:
-      - 8443:8443
-    restart: unless-stopped
+    command:
+      - --disable-telemetry
 
 volumes:
   config:
