@@ -1,9 +1,10 @@
 # https://hub.docker.com/r/containrrr/watchtower
-watchtower:
-  image: containrrr/watchtower
-  container_name: watchtower
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-  ports:
-    - 8081:8080 #for homepage API access
-  restart: unless-stopped
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8081:8080 #for homepage API access
+    restart: unless-stopped
