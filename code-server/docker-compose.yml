@@ -1,4 +1,6 @@
 # https://docs.linuxserver.io/images/docker-code-server/
+# https://coder.com/docs/code-server/install#docker
+
 services:
   code-server:
     image: lscr.io/linuxserver/code-server:latest
@@ -7,9 +9,10 @@ services:
       #- PUID=1000
       #- PGID=1000
       - TZ=America/New_York
-      - DEFAULT_WORKSPACE=~/docker #optional
+      - DEFAULT_WORKSPACE=$HOME/docker #optional
     volumes:
       - config:/config
+      - /root:/local
     ports:
       - 8443:8443
     restart: unless-stopped
