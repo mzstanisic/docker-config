@@ -82,13 +82,13 @@ services:
 
   # https://hub.docker.com/r/linuxserver/sonarr
   sonarr:
-    image: ghcr.io/linuxserver/sonarr:latest
+    image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     ports:
       - 8989:8989
     volumes:
       - sonarr:/config
-      - $MEDIADIR:/data
+      - ${MEDIADIR}:/data
     restart: unless-stopped
     environment:
       - PUID=${PUID}
