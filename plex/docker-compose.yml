@@ -1,0 +1,35 @@
+# https://hub.docker.com/r/hotio/plex
+services:
+  plex:
+    container_name: plex
+    image: cr.hotio.dev/hotio/plex
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - UMASK=002
+      - DEBUG=no
+      - PLEX_CLAIM=$PLEX_CLAIM
+      - PLEX_PASS=$PLEX_PASS
+      - ADVERTISE_IP=$PLEX_ADVERTISE_IP
+    volumes:
+      - ./plex:/config:rw
+      - $PLEXMEDIA:/data/media:rw
+      - /tmp:/transcode:rw
+    ports: #required for bridge network mode
+      - 32400:32400
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+    devices:
+      - /dev/dri:/dev/dri #required for Synology users
+      
+    # host network doesn't work for Docker Desktop on Windows,
+    # use bridge network mode instead,with 'media' network:
+    # https://docs.linuxserver.io/images/docker-plex/#optional-parameters  
+    
+    # network_mode: host
