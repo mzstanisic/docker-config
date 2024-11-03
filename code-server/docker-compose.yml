@@ -16,8 +16,8 @@ services:
       - PASSWORD=${PASSWORD}
       - TZ=${TZ}
       - DEFAULT_WORKSPACE=${DEFAULT_WORKSPACE} #optional
-    command:
-      - --disable-telemetry
+    #command:
+    #  - --disable-telemetry
 
 volumes:
   config:
