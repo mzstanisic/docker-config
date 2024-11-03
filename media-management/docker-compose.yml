@@ -26,7 +26,7 @@ services:
     container_name: qbittorrent
     volumes:
       - qbittorrent:/config
-      - ${MEDIADIR}/torrents:/downloads
+      - ${MEDIADIR}/torrents:/data/torrents
     network_mode: service:gluetun
     restart: unless-stopped
     environment:
