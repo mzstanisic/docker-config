@@ -6,7 +6,7 @@ services:
     ports:
       - 3002:3000
     volumes:
-      - /root/docker/homepage/config:/app/config # Make sure your local config directory exists
-      - /root/docker/homepage/icons:/app/public/icons
+      - ${CONFIG}:/app/config # Make sure your local config directory exists
+      - ${ICONS}:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
     restart: unless-stopped
