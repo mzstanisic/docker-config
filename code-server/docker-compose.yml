@@ -11,11 +11,11 @@ services:
       - /root:/local
     restart: unless-stopped
     environment:
-      - PUID=0
-      - PGID=0
-      - PASSWORD=code-server-webgui-pass
-      - TZ=America/New_York
-      - DEFAULT_WORKSPACE=/local/docker #optional
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - PASSWORD=${PASSWORD}
+      - TZ=${TZ}
+      - DEFAULT_WORKSPACE=${DEFAULT_WORKSPACE} #optional
     command:
       - --disable-telemetry
 
