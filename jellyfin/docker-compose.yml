@@ -12,7 +12,9 @@ services:
       - ${LIBRARIES}:/libraries
     restart: unless-stopped
     devices:
-      - /dev/dri:/dev/dri
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    group_add:
+      - "105"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
