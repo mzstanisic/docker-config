@@ -11,6 +11,8 @@ services:
       - ${CONFIG}:/config
       - ${LIBRARIES}:/libraries
     restart: unless-stopped
+    devices:
+      - /dev/dri:/dev/dri
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
