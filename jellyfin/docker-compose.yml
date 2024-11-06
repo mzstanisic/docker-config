@@ -1,23 +1,44 @@
-# https://jellyfin.org/docs/general/installation/container#docker
+# https://hotio.dev/containers/jellyfin/
 services:
   jellyfin:
-    image: jellyfin/jellyfin
     container_name: jellyfin
-    # user: ${PUID}:${PGID}
-    network_mode: 'host'
+    image: ghcr.io/hotio/jellyfin
+    ports:
+      - "8096:8096"
     volumes:
       - ${CONFIG}:/config
-      - ${CACHE}:/cache
       - ${LIBRARIES}:/libraries
     restart: 'unless-stopped'
     environment:
-      - JELLYFIN_PublishedServerUrl=${PUBLISHEDSERVERURL} # Optional - alternative address used for autodiscovery
-    extra_hosts:
-      - 'host.docker.internal:host-gateway' # Optional - may be necessary for docker healthcheck to pass if running in host network mode
-    devices:
-      - /dev/dri/renderD128:/dev/dri/renderD128
-    group_add:
-      - "105"
+      # - PUID=1000
+      # - PGID=1000
+      # - UMASK=002
+      - TZ=${TZ}
+    # devices:
+    #   - /dev/dri/renderD128:/dev/dri/renderD128
+    # group_add:
+    #   - "105"
+
+# https://jellyfin.org/docs/general/installation/container#docker
+# services:
+#   jellyfin:
+#     image: jellyfin/jellyfin
+#     container_name: jellyfin
+#     # user: ${PUID}:${PGID}
+#     network_mode: 'host'
+#     volumes:
+#       - ${CONFIG}:/config
+#       - ${CACHE}:/cache
+#       - ${LIBRARIES}:/libraries
+#     restart: 'unless-stopped'
+#     environment:
+#       - JELLYFIN_PublishedServerUrl=${PUBLISHEDSERVERURL} # Optional - alternative address used for autodiscovery
+#     extra_hosts:
+#       - 'host.docker.internal:host-gateway' # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+#     devices:
+#       - /dev/dri/renderD128:/dev/dri/renderD128
+#     group_add:
+#       - "105"
 
 # https://docs.linuxserver.io/images/docker-jellyfin/
 # services:
