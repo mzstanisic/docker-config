@@ -8,8 +8,10 @@ services:
     # user: ${PUID}:${PGID}
     network_mode: 'host'
     volumes:
-      - ${CONFIG}:/config
-      - ${CACHE}:/cache
+    #  - ${CONFIG}:/config
+    #  - ${CACHE}:/cache
+      - config:/config
+      - cache:/cache
       - ${LIBRARIES}:/libraries
     restart: 'unless-stopped'
     environment:
@@ -20,6 +22,10 @@ services:
       - /dev/dri/renderD128:/dev/dri/renderD128 # must be first passed through Proxmox to VM
     group_add:
       - "105"
+
+volumes:
+  config:
+  cache:
 
 # https://hotio.dev/containers/jellyfin/
 # services:
