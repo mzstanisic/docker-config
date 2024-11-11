@@ -96,6 +96,15 @@ services:
       - TZ=${TZ}
       - UMASK=022
 
+  # https://recyclarr.dev/wiki/
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr
+    container_name: recyclarr
+    user: ${PUID}:${PGID}
+    volumes:
+      - recyclarr:/config
+    environment:
+      - TZ=${TZ}
 
 volumes:
   qbittorrent:
