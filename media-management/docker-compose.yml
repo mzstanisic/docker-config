@@ -100,9 +100,10 @@ services:
   recyclarr:
     image: ghcr.io/recyclarr/recyclarr
     container_name: recyclarr
-    user: ${PUID}:${PGID}
+    #user: ${PUID}:${PGID}
     volumes:
       - ${RECYCLARR_CONFIG}:/config
+    restart: unless-stopped
     environment:
       - TZ=${TZ}
 
