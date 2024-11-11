@@ -11,8 +11,6 @@ services:
       - ${LOCAL}:/local
     restart: unless-stopped
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
       - PASSWORD=${PASSWORD}
       - TZ=${TZ}
       - DEFAULT_WORKSPACE=${DEFAULT_WORKSPACE} #optional
