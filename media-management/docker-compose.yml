@@ -102,7 +102,7 @@ services:
     container_name: recyclarr
     user: ${PUID}:${PGID}
     volumes:
-      - recyclarr:/config
+      - ${RECYCLARR_CONFIG}:/config
     environment:
       - TZ=${TZ}
 
