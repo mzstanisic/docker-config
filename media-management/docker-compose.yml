@@ -14,7 +14,7 @@ services:
       - 6881:6881/udp
       - 8000:8000 #for API access in homepage
     volumes:
-      - ${CONFIG}:/gluetun/auth/config.toml
+      - ${GLUETUN_CONFIG}:/gluetun/auth/config.toml
     restart: unless-stopped
     environment: # https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/mullvad.md
       - VPN_SERVICE_PROVIDER=${VPNPROVIDER}
@@ -112,7 +112,7 @@ volumes:
   prowlarr:
   radarr:
   sonarr:
-  recyclarr:
+  #recyclarr:
 
 
   # # https://hub.docker.com/r/hotio/plex
