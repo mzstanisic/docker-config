@@ -15,6 +15,7 @@ services:
       - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
       - NEXTAUTH_URL=${NEXTAUTH_URL}
+      - CRAWLER_VIDEO_DOWNLOAD=${CRAWLER_VIDEO_DOWNLOAD}
 
   chrome:
     container_name: hoarder-chrome
@@ -30,7 +31,7 @@ services:
 
   meilisearch:
     container_name: hoarder-meilisearch
-    image: getmeili/meilisearch:v1.6
+    image: getmeili/meilisearch:v1.11.1
     volumes:
       - meilisearch:/meili_data
     restart: unless-stopped
