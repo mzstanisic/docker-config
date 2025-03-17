@@ -11,4 +11,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
     restart: unless-stopped
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: 192.168.0.148:3002 # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS} # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
