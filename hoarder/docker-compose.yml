@@ -16,6 +16,7 @@ services:
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
       - NEXTAUTH_URL=${NEXTAUTH_URL}
       - CRAWLER_VIDEO_DOWNLOAD=${CRAWLER_VIDEO_DOWNLOAD}
+      - CRAWLER_VIDEO_DOWNLOAD_MAX_SIZE=-1
 
   chrome:
     container_name: hoarder-chrome
